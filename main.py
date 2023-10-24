@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 import uuid
 
 app = Flask(__name__)
@@ -82,4 +82,5 @@ def patch_method(problem_id):
 @app.route('/problems/<string:problem_id>', methods=['DELETE'])
 def delete_method(problem_id):
     del problems[problem_id]
+    return Response(status=204)
 
